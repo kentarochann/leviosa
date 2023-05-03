@@ -17,12 +17,12 @@
         <div>ウィンガーディアム・レヴィオーサ</div>
         <!-- todo shortのほうが広告なさそうでいい？ -->
         <!-- todo 音声だけにする -->
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18?start=34&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
         <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18?start=34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <div>
         <button class="again">もう一度確認する</button>
     </div>
+    <!-- todo ハーマイオニー以外の発音 -->
     <!-- <div>
         <div>先生のウィンガーディアム・レヴィオーサ</div>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -37,24 +37,19 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>
 <script>
     // todo jsファイルを分ける
-    // 音声で確認するパターンとテキストで確認するパターンを作る
+    // todo 音声で確認するパターンとテキストで確認するパターンを作る
+
     $(function(){
-        // console.log('video');
         let src = $('.video').attr('src'); 
-        // console.log("bfore: " + src);
         $(".confirm").click(function(){
+
             newSrc = src + '&autoplay=1&mute=０&end=37'
-            // console.log("after: " + newSrc);
-            
             $('.video').attr('src', newSrc); 
-            // $('.video_box').show();
             $('.again').show();
-
-            $(".again").click(function(){
-                $('.video').attr('src', newSrc); 
-            });
-
-
+        });
+        
+        $(".again").click(function(){
+            $('.video').attr('src', newSrc); 
         });
     });
 </script>
