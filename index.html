@@ -8,37 +8,30 @@
     <title>Document</title>
 </head>
 <body>
-    <div>レヴィオーサ</div>
-    <button class="confirm">
-        レヴィオーサの発音を確認する
-    </button>
-    <div>※音声が流れます</div>
-    <div class="video_box">
-        <div>ウィンガーディアム・レヴィオーサ</div>
-        <!-- todo shortのほうが広告なさそうでいい？ -->
-        <!-- todo 音声だけにする -->
-        <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18?start=34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="container">
+        <div class="main_container">
+            <h1>ウィンガーディアム・レヴィオーサの発音がわからなくなってしまった方へ</h1>
+            <div class="confirm_container">
+                <div>ミスグレンジャーの発音を聞いてみましょう</div>
+                <button class="confirm">
+                    発音を確認する
+                </button>
+                <div class="attention">※音声が流れます</div>
+                <div class="video_box">
+                    <div>ウィンガーディアム・レヴィオーサ</div>
+                    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18?start=34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>    
+            </div>
+            <div class="again_container">
+                <button class="again">もう一度確認する</button>
+            </div>
+        </div>
     </div>
-    <div>
-        <button class="again">もう一度確認する</button>
-    </div>
-    <!-- todo ハーマイオニー以外の発音 -->
-    <!-- <div>
-        <div>先生のウィンガーディアム・レヴィオーサ</div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    <div>
-        <div>あなたのはレヴィオサー</div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WeCOGJZzY18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div> -->
 <script
 src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"></script>
 <script>
-    // todo jsファイルを分ける
-    // todo 音声で確認するパターンとテキストで確認するパターンを作る
-
     $(function(){
         let src = $('.video').attr('src'); 
         $(".confirm").click(function(){
