@@ -21,6 +21,7 @@ body{
 .confirm{
     border-radius: 10px;
     font-size: 18px;
+    background-color: white;
 }
 
 .attention{
@@ -29,9 +30,9 @@ body{
     text-decoration: underline;
 }
 
-.video_box{
+.player_box {
     display: none;
-}
+  }
 
 .again_container{
     margin-top: 10px;
