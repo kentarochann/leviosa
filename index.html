@@ -10,17 +10,18 @@
 <body>
     <div class="container">
         <div class="main_container">
-            <h1>ウィンガーディアム・レヴィオーサの発音がわからなくなってしまった方へ</h1>
+            <h1>ウィンガーディアム・レヴィオーサの発音が<br>わからなくなってしまった方へ</h1>
             <div class="confirm_container">
                 <div>ミスグレンジャーの発音を聞いてみましょう</div>
-                <button class="confirm">
-                    発音を確認する
-                </button>
+                <div>
+                    <button class="confirm">
+                        発音を確認する
+                    </button>
+                </div>  
                 <div class="attention">※音声が流れます</div>
-                <div class="video_box">
-                    <div>ウィンガーディアム・レヴィオーサ</div>
-                    <iframe class="video" width="560" height="315" src="https://www.youtube-nocookie.com/embed/WeCOGJZzY18?start=34" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>    
+                <div class="player_box">
+                    <div id="player"></div>
+                </div>
             </div>
             <div class="again_container">
                 <button class="again">もう一度確認する</button>
@@ -30,21 +31,54 @@
 <script
 src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"></script>
-<script>
-    $(function(){
-        let src = $('.video').attr('src'); 
-        $(".confirm").click(function(){
+crossorigin="anonymous">
+</script>
 
-            newSrc = src + '&autoplay=1&mute=０&end=37'
-            $('.video').attr('src', newSrc); 
-            $('.again').show();
+<script>
+//IFrame Player APIの読み込み
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+//YouTube playerの埋め込み
+var player;
+function onYouTubeIframeAPIReady() {
+    
+    function playLeviosa(){
+        player = new YT.Player('player', { // YT.Playerオブジェクトを作成（'player'は動画の挿入先のid名）
+            videoId: 'WeCOGJZzY18',
+            playerVars: {
+                'playlist': 'WeCOGJZzY18',
+                'autoplay': 1,  
+                'mute': 0,
+                'playsinline': 1,
+                'start' : 34,
+                'end' : 37,
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
         });
-        
-        $(".again").click(function(){
-            $('.video').attr('src', newSrc); 
-        });
+
+        // YouTubeの準備完了後、再生開始
+        function onPlayerReady(e) {
+            player.mute();
+            player.unMute();
+            player.playVideo();
+        };
+    };
+
+    $(".confirm").click(function(){
+        playLeviosa();
+        $('.again').show();
     });
+
+    $(".again").click(function(){
+        $('.player_box').html('<div id="player"></div>')
+        playLeviosa();
+    });
+}
 </script>
 </body>
 </html>
